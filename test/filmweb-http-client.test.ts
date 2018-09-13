@@ -26,4 +26,10 @@ describe('Low level http calls', () => {
     }
   })
 
+  it('searches for sharp objects', async () => {
+    expect.assertions(1);
+    const results = await Client.search('sharp objects');
+    expect(results[0][1]).toContain('770836');
+  })
+
 })

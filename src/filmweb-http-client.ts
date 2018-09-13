@@ -3,6 +3,7 @@ import { default as axios, AxiosResponse } from 'axios';
 
 namespace Config {
   export const API_SERVER = 'https://ssl.filmweb.pl/api?'; // 'http://localhost:5000/';
+  export const SEARCH_SERVER = 'https://www.filmweb.pl/search/live?q='; // 'http://localhost:5000/';
   export const KEY = 'qjcGhW2JnvGT9dfCt3uT_jozR3s';
 }
 
@@ -69,3 +70,14 @@ export async function post(method:string): Promise<Result> {
   console.log(result.data);
   return extractResult(result);
 }
+
+function extractSearchResult(response: AxiosResponse<string>):  string[][]{
+  return response.data.split('\\a').map(record => record.split('\\c'));
+}
+
+export async function search(query:string): Promise<string[][]> {
+  let result = await axios.get(Config.SEARCH_SERVER + encodeURI(query));
+  console.log(result.data);
+  return extractSearchResult(result);
+}
+
