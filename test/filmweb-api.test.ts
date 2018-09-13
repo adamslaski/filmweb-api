@@ -7,7 +7,7 @@ describe('Filmweb API', () => {
     const result = await FilmwebAPI.login(credentials.login, credentials.password);
     expect(result.status).toContain('ok');
     const result2 = await FilmwebAPI.getFilmUserRecommendation(770836);
-    expect(result2.content).toContain('69');        
+    expect(result2.content).toContain(credentials.sharpObjectsRecommValue);        
   })
   it('fetches full film info', async () => {
     expect.assertions(1);
