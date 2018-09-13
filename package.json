@@ -1,0 +1,42 @@
+{
+  "name": "filmweb-api",
+  "version": "0.0.0",
+  "description": "API library for filmweb.pl",
+  "main": "lib/filmweb-api.js",
+  "typings": "lib/filmweb-api.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "Filmweb"
+  ],
+  "author": "Adam Slaski <adam.slaski@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testURL": "https://ssl.filmweb.pl"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "ts-md5": "^1.2.4"
+  }
+}
