@@ -61,13 +61,11 @@ function extractResult(response: AxiosResponse<string>): Result {
 
 export async function get(method:string): Promise<Result> {
   let result = await axios.get(Config.API_SERVER + prepareParams(method));
-  console.log(result.data);
   return extractResult(result);
 }
 
 export async function post(method:string): Promise<Result> {
   let result = await axios.post(Config.API_SERVER + prepareParams(method));
-  console.log(result.data);
   return extractResult(result);
 }
 
@@ -77,7 +75,6 @@ function extractSearchResult(response: AxiosResponse<string>):  string[][]{
 
 export async function search(query:string): Promise<string[][]> {
   let result = await axios.get(Config.SEARCH_SERVER + encodeURI(query));
-  console.log(result.data);
   return extractSearchResult(result);
 }
 
