@@ -10,12 +10,22 @@ export async function getFilmInfoFull(id: number): Promise<Client.Result> {
   return result;
 }
 
-export async function getFilmUserRecommendation(id: number): Promise<number> {
-  const result = await Client.get(`getFilmUserRecommendation [${id}]`);
-  return JSON.parse(result.content)[0];
+export async function getFilmUserRecommendation(id: number): Promise<number | undefined> {
+  try {
+    const result = await Client.get(`getFilmUserRecommendation [${id}]`);
+    return JSON.parse(result.content)[0];
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
 }
 
-export async function search(query:string): Promise<number> {
-  const results = await Client.search(query);
-  return Number(results[0][1]); 
+export async function search(query:string): Promise<number | undefined> {
+  try {
+    const results = await Client.search(query);
+    return Number(results[0][1]);   
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
 }

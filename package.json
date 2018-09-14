@@ -1,6 +1,6 @@
 {
   "name": "filmweb-api",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "API library for filmweb.pl",
   "main": "lib/filmweb-api.js",
   "typings": "lib/filmweb-api.d.ts",
