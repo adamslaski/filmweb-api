@@ -11,21 +11,23 @@ export async function getFilmInfoFull(id: number): Promise<Client.Result> {
 }
 
 export async function getFilmUserRecommendation(id: number): Promise<number | undefined> {
+  let result;
   try {
-    const result = await Client.get(`getFilmUserRecommendation [${id}]`);
+    result = await Client.get(`getFilmUserRecommendation [${id}]`);
     return JSON.parse(result.content)[0];
   } catch (error) {
-    console.log(error);
+    console.error(`get(getFilmUserRecommendation [${id}])`, error, result);
     return undefined;
   }
 }
 
 export async function search(query:string): Promise<number | undefined> {
+  let results;
   try {
-    const results = await Client.search(query);
+    results = await Client.search(query);
     return Number(results[0][1]);   
   } catch (error) {
-    console.log(error);
+    console.error(`search(${query})`, error, results);
     return undefined;
   }
 }
